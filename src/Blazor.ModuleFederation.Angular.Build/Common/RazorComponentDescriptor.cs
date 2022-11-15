@@ -15,6 +15,8 @@ namespace Blazor.ModuleFederation.Angular.Build.Common
         }
 
         private static string GetComponentTypeName(string fullName)
-            => fullName.Substring(fullName.LastIndexOf('.') + 1);
+        {
+            return fullName.Substring(fullName.LastIndexOf('.') + 1);
+        }
     }
 }

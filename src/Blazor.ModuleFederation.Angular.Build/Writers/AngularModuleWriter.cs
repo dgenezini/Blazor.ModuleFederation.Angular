@@ -35,7 +35,7 @@ export class AppModule {{ }}
                 .ToArray();
 
             var componentImports = componentDescriptors
-                .Select(a => 
+                .Select(a =>
                     string.Format(ComponentImportTemplate, a.Name, CasingUtilities.ToKebabCase(a.Name)))
                 .ToArray();
 

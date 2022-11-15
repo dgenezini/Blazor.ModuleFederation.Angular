@@ -1,9 +1,8 @@
 using System;
 
-namespace Blazor.ModuleFederation.Angular
+namespace Blazor.ModuleFederation.Angular;
+
+[AttributeUsage(AttributeTargets.Class)]
+public class GenerateAngularAttribute : Attribute
 {
-    [AttributeUsage(AttributeTargets.Class)]
-    public class GenerateAngularAttribute : Attribute
-    {
-    }
 }

@@ -1,11 +1,10 @@
-using System;
+using Blazor.ModuleFederation.Angular.Build.Common;
+using Blazor.ModuleFederation.Angular.Shared;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Blazor.ModuleFederation.Angular.Build.Common;
-using Blazor.ModuleFederation.Angular.Shared;
 
 namespace Blazor.ModuleFederation.Angular.Build.Writers
 {
@@ -74,7 +73,8 @@ export class {1}Component extends BlazorAdapterComponent {{{2}
         }
 
         private static string GetJavaScriptTypeName(string cSharpTypeName)
-            => cSharpTypeName switch
+        {
+            return cSharpTypeName switch
             {
                 var x when x == typeof(byte).FullName => "number",
                 var x when x == typeof(sbyte).FullName => "number",
@@ -93,5 +93,6 @@ export class {1}Component extends BlazorAdapterComponent {{{2}
                 var x when x.StartsWith(EventCallbackTypeName) => "eventcallback",
                 _ => "object"
             };
+        }
     }
 }

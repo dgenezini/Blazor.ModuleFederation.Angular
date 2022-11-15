@@ -11,7 +11,7 @@ namespace Blazor.ModuleFederation.Angular.Build.Writers
     {
         [Required]
         public string OutputPath { get; set; }
-        
+
         [Required]
         public string JsFilesPath { get; set; }
 
@@ -35,10 +35,14 @@ namespace Blazor.ModuleFederation.Angular.Build.Writers
             Directory.CreateDirectory(targetDir);
 
             foreach (var file in Directory.GetFiles(sourceDir))
+            {
                 File.Copy(file, Path.Combine(targetDir, Path.GetFileName(file)), true);
+            }
 
             foreach (var directory in Directory.GetDirectories(sourceDir))
+            {
                 CopyFiles(directory, Path.Combine(targetDir, Path.GetFileName(directory)));
+            }
         }
 
         public override bool Execute()
@@ -106,7 +110,7 @@ namespace Blazor.ModuleFederation.Angular.Build.Writers
 
             try
             {
-                AngularWebpackConfigWriter.Write(JavaScriptComponentOutputDirectory, 
+                AngularWebpackConfigWriter.Write(JavaScriptComponentOutputDirectory,
                     componentDescriptors, ModuleFederationName);
             }
             catch (Exception e)

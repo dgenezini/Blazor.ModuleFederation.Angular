@@ -24,24 +24,17 @@ export const environment = {{
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 ";
 
-        public static void Write(string outputDirectory, string blazorMicroFrontendBaseUrl, 
+        public static void Write(string outputDirectory, string blazorMicroFrontendBaseUrl,
             bool isProduction)
         {
-            var environmentContents = string.Format(EnvironmentTemplate, 
+            var environmentContents = string.Format(EnvironmentTemplate,
                 isProduction.ToString().ToLower(),
                 blazorMicroFrontendBaseUrl);
 
             var angularEnvironmentPath = $"{outputDirectory}/src/environments";
-            string angularEnvironmentFile;
-
-            if (isProduction)
-            {
-                angularEnvironmentFile = $"{angularEnvironmentPath}/environment.prod.ts";
-            }
-            else
-            {
-                angularEnvironmentFile = $"{angularEnvironmentPath}/environment.ts";
-            }
+            var angularEnvironmentFile = isProduction ? 
+                $"{angularEnvironmentPath}/environment.prod.ts" : 
+                $"{angularEnvironmentPath}/environment.ts";
 
             Directory.CreateDirectory(angularEnvironmentPath);
             File.WriteAllText(angularEnvironmentFile, environmentContents);

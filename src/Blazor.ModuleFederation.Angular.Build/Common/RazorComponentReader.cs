@@ -41,7 +41,7 @@ namespace Blazor.ModuleFederation.Angular.Build.Common
                 {
                     continue;
                 }
-                
+
                 if (!TryGetTypeName(metadataReader, in attributeTypeHandle, out var attributeTypeName))
                 {
                     continue;
