@@ -1,8 +1,7 @@
-namespace Blazor.ModuleFederation.Angular.Build.Common
+namespace Blazor.ModuleFederation.Angular.Build.Common;
+
+internal class BoundAttributeDescriptor
 {
-    internal class BoundAttributeDescriptor
-    {
-        public string Name { get; set; }
-        public string TypeName { get; set; }
-    }
+    public string Name { get; set; }
+    public string TypeName { get; set; }
 }

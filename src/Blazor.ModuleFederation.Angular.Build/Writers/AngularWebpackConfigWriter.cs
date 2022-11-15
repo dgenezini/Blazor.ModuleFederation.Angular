@@ -5,11 +5,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Blazor.ModuleFederation.Angular.Build.Writers
+namespace Blazor.ModuleFederation.Angular.Build.Writers;
+
+internal static class AngularWebpackConfigWriter
 {
-    internal static class AngularWebpackConfigWriter
-    {
-        private const string WebpackConfigTemplate =
+    private const string WebpackConfigTemplate =
 @"const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin');
 const mf = require('@angular-architects/module-federation/webpack');
 const path = require('path');
@@ -57,27 +57,26 @@ module.exports = {{
 }};
 ";
 
-        private const string ComponentExposesTemplate =
-            @"          './{0}': './src/app/{1}/{1}.component.ts'";
+    private const string ComponentExposesTemplate =
+        @"          './{0}': './src/app/{1}/{1}.component.ts'";
 
-        public static void Write(string outputDirectory,
-            List<RazorComponentDescriptor> componentDescriptors,
-            string moduleFederationName)
-        {
-            var componentExposes = componentDescriptors
-                .Select(a =>
-                    string.Format(ComponentExposesTemplate, a.Name, CasingUtilities.ToKebabCase(a.Name)))
-                .ToArray();
+    public static void Write(string outputDirectory,
+        List<RazorComponentDescriptor> componentDescriptors,
+        string moduleFederationName)
+    {
+        var componentExposes = componentDescriptors
+            .Select(a =>
+                string.Format(ComponentExposesTemplate, a.Name, CasingUtilities.ToKebabCase(a.Name)))
+            .ToArray();
 
-            var componentExposesLines = string.Join(", " + Environment.NewLine, componentExposes);
+        var componentExposesLines = string.Join(", " + Environment.NewLine, componentExposes);
 
-            var webpackContents = string.Format(WebpackConfigTemplate, moduleFederationName.ToLower(),
-                componentExposesLines);
+        var webpackContents = string.Format(WebpackConfigTemplate, moduleFederationName.ToLower(),
+            componentExposesLines);
 
-            var angularWebPackFile = $"{outputDirectory}/webpack.config.js";
+        var angularWebPackFile = $"{outputDirectory}/webpack.config.js";
 
-            Directory.CreateDirectory(outputDirectory);
-            File.WriteAllText(angularWebPackFile, webpackContents);
-        }
+        Directory.CreateDirectory(outputDirectory);
+        File.WriteAllText(angularWebPackFile, webpackContents);
     }
 }

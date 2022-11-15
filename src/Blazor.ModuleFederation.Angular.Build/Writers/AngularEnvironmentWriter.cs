@@ -1,10 +1,10 @@
 using System.IO;
 
-namespace Blazor.ModuleFederation.Angular.Build.Writers
+namespace Blazor.ModuleFederation.Angular.Build.Writers;
+
+internal static class AngularEnvironmentWriter
 {
-    internal static class AngularEnvironmentWriter
-    {
-        private const string EnvironmentTemplate =
+    private const string EnvironmentTemplate =
 @"// This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -24,20 +24,19 @@ export const environment = {{
 // import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
 ";
 
-        public static void Write(string outputDirectory, string blazorMicroFrontendBaseUrl,
-            bool isProduction)
-        {
-            var environmentContents = string.Format(EnvironmentTemplate,
-                isProduction.ToString().ToLower(),
-                blazorMicroFrontendBaseUrl);
+    public static void Write(string outputDirectory, string blazorMicroFrontendBaseUrl,
+        bool isProduction)
+    {
+        var environmentContents = string.Format(EnvironmentTemplate,
+            isProduction.ToString().ToLower(),
+            blazorMicroFrontendBaseUrl);
 
-            var angularEnvironmentPath = $"{outputDirectory}/src/environments";
-            var angularEnvironmentFile = isProduction ? 
-                $"{angularEnvironmentPath}/environment.prod.ts" : 
-                $"{angularEnvironmentPath}/environment.ts";
+        var angularEnvironmentPath = $"{outputDirectory}/src/environments";
+        var angularEnvironmentFile = isProduction ?
+            $"{angularEnvironmentPath}/environment.prod.ts" :
+            $"{angularEnvironmentPath}/environment.ts";
 
-            Directory.CreateDirectory(angularEnvironmentPath);
-            File.WriteAllText(angularEnvironmentFile, environmentContents);
-        }
+        Directory.CreateDirectory(angularEnvironmentPath);
+        File.WriteAllText(angularEnvironmentFile, environmentContents);
     }
 }
