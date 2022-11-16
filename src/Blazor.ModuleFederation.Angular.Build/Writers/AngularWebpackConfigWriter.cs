@@ -25,7 +25,7 @@ module.exports = {{
     uniqueName: '{0}',
     publicPath: 'auto',
     scriptType: 'text/javascript',
-    path: path.resolve(__dirname, '../wwwroot/js')
+    path: path.resolve(__dirname, '../../wwwroot/js')
   }},
   optimization: {{
     runtimeChunk: false

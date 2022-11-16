@@ -2,6 +2,7 @@
   <PropertyGroup>
 	  <_TaskDll>$(MSBuildThisFileDirectory)..\tasks\net6.0\Blazor.ModuleFederation.Angular.Build.dll</_TaskDll>
 	  <_JsFilesPath>$(MSBuildThisFileDirectory)..\lib\net6.0\js\</_JsFilesPath>
+	  <_JavaScriptOutputPath>obj\_npm</_JavaScriptOutputPath>
   </PropertyGroup>
 
   <Target Name="HackRazorSdk">
@@ -24,7 +25,7 @@
 							   JsFilesPath="$(_JsFilesPath)"
                                IntermediateOutputPath="$(IntermediateOutputPath)" 
                                AssemblyName="$(AssemblyName)" 
-                               JavaScriptComponentOutputDirectory="$(JavaScriptOutputPath)"
+                               JavaScriptComponentOutputDirectory="$(_JavaScriptOutputPath)"
                                ModuleFederationName="$(ModuleFederationName)"
 							   MicroFrontendBaseUrl="$(MicroFrontendBaseUrl)"/>
   </Target>
@@ -38,8 +39,8 @@
   <Target Name="NpmBuild" 
           Condition="'$(BuildModuleFederationScript)' == 'True'"
           AfterTargets="GenerateJavaScriptComponents">
-	<Exec Command="npm install" WorkingDirectory="$(JavaScriptOutputPath)" />
+	<Exec Command="npm install" WorkingDirectory="$(_JavaScriptOutputPath)" />
     <Exec Command="ng run blazormodulefederation:build:$(AngularEnvironment)" 
-          WorkingDirectory="$(JavaScriptOutputPath)" />
+          WorkingDirectory="$(_JavaScriptOutputPath)" />
   </Target>
 </Project>
