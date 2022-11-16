@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Blazor.ModuleFederation.Angular</id>
+    <version>0.1.0</version>
+    <authors>Daniel Genezini</authors>
+    <description>A Module Federation wrapper for Blazor</description>
+	<licenseUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular/blob/main/LICENSE</licenseUrl>
+	<iconUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular/raw/main/blazor-angular.png</iconUrl>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Microsoft.AspNetCore.Components.Web" version="6.0.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.Build.Utilities.Core" version="16.10.0" exclude="Build,Analyzers" />
+        <dependency id="System.Reflection.Metadata" version="5.0.0" exclude="Build,Analyzers" />
+        <dependency id="System.Text.Json" version="4.7.2" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+
+  <files>
+    <file src="bin\Release\net6.0\Blazor.ModuleFederation.Angular.dll" target="lib\net6.0" />
+    <file src="bin\Release\net6.0\Blazor.ModuleFederation.Angular.Build.dll" target="tasks\net6.0" />
+    <file src="bin\Release\net6.0\build\Blazor.ModuleFederation.Angular.Build.targets" target="build\Blazor.ModuleFederation.Angular.targets" />
+    <file src="bin\Release\net6.0\js\**" target="lib\net6.0\js" />
+  </files>
+</package>

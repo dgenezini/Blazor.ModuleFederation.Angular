@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+	<NuspecFile>Blazor.ModuleFederation.Angular.nuspec</NuspecFile>
+	<PackageId>$(AssemblyName)</PackageId>
+	<Authors>Daniel Genezini</Authors>
+	<Copyright>Daniel Genezini</Copyright>
+	<PackageIcon>blazor-angular.png</PackageIcon>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+	<RepositoryType>git</RepositoryType>
+	<PackageTags>blazor;module federation;angular;microfrontend</PackageTags>
+	<AssemblyVersion>0.1.0.0</AssemblyVersion>
+	<FileVersion>$(AssemblyVersion)</FileVersion>
+	<InformationalVersion>$(AssemblyVersion)</InformationalVersion>
+	<PackageProjectUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular</PackageProjectUrl>
+	<RepositoryUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular</RepositoryUrl>
+	<Description>A Module Federation wrapper for Blazor</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Blazor.ModuleFederation.Angular.Shared\CasingUtilities.cs" Link="Shared\CasingUtilities.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\blazor-angular.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Blazor.ModuleFederation.Angular.Build\Blazor.ModuleFederation.Angular.Build.csproj" />
+  </ItemGroup>
+
+</Project>
