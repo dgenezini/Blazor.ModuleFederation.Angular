@@ -124,7 +124,7 @@ Include the loader component in the HTML.
 
 Import the Blazor exposed component in the `ModuleFederationPlugin.remotes`.
 
-```json
+```javascript
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const mf = require("@angular-architects/module-federation/webpack");
 const path = require("path");
