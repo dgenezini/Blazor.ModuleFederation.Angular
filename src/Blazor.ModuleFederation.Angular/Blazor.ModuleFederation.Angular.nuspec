@@ -2,12 +2,12 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Blazor.ModuleFederation.Angular</id>
-    <version>0.1.1</version>
+    <version>0.1.2</version>
     <authors>Daniel Genezini</authors>
     <description>A Module Federation wrapper for Blazor</description>
-	<license type="expression">MIT</license>
-	<icon>images\blazor-angular.png</icon>
-	<iconUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular/raw/main/blazor-angular.png</iconUrl>
+	  <license type="expression">MIT</license>
+	  <icon>images\blazor-angular.png</icon>
+    <repository type="git" url="https://github.com/dgenezini/Blazor.ModuleFederation.Angular" branch="main" />
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Microsoft.AspNetCore.Components.Web" version="6.0.0" exclude="Build,Analyzers" />
