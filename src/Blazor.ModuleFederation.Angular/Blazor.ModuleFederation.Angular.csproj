@@ -11,7 +11,7 @@
 	<PackageReadmeFile>README.md</PackageReadmeFile>
 	<RepositoryType>git</RepositoryType>
 	<PackageTags>blazor;module federation;angular;microfrontend</PackageTags>
-	<AssemblyVersion>0.1.2.0</AssemblyVersion>
+	<AssemblyVersion>0.1.3.0</AssemblyVersion>
 	<FileVersion>$(AssemblyVersion)</FileVersion>
 	<InformationalVersion>$(AssemblyVersion)</InformationalVersion>
 	<PackageProjectUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular</PackageProjectUrl>

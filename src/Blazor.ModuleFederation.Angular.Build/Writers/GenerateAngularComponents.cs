@@ -48,7 +48,7 @@ namespace Blazor.ModuleFederation.Angular.Build.Writers
 
             try
             {
-                componentNames = new(RazorComponentReader.ReadWithAttributeFromAssembly(assemblyFilePath, "GenerateAngularAttribute"));
+                componentNames = new(RazorComponentReader.ReadWithAttributeFromAssembly(assemblyFilePath, "GenerateModuleFederationComponentAttribute"));
             }
             catch (Exception e)
             {
