@@ -6,6 +6,8 @@ Generates an Angular application exposing the registered Blazor components throu
 
 The exposed components accept input parameters and subscription to events.
 
+***Disclaimer: This package is not ready for production.***
+
 [![Package Version](https://img.shields.io/nuget/v/Blazor.ModuleFederation.Angular.svg)](https://www.nuget.org/packages/Blazor.ModuleFederation.Angular)
 
 # Current issues and limitations
