@@ -5,7 +5,8 @@
     <version>0.1.0</version>
     <authors>Daniel Genezini</authors>
     <description>A Module Federation wrapper for Blazor</description>
-	<iconUrl></iconUrl>
+	<licenseUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular/blob/main/LICENSE</licenseUrl>
+	<iconUrl>https://github.com/dgenezini/Blazor.ModuleFederation.Angular/raw/main/blazor-angular.png</iconUrl>
     <dependencies>
       <group targetFramework="net6.0">
         <dependency id="Microsoft.AspNetCore.Components.Web" version="6.0.0" exclude="Build,Analyzers" />
